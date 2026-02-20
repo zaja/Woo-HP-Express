@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HP Express WooCommerce - Upute za korištenje</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);
+            color: #000;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .toc {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .toc h2 {
+            margin-bottom: 20px;
+            color: #333;
+            border-bottom: 2px solid #ffc107;
+            padding-bottom: 10px;
+        }
+        
+        .toc ul {
+            list-style: none;
+        }
+        
+        .toc li {
+            margin: 10px 0;
+        }
+        
+        .toc a {
+            color: #1976d2;
+            text-decoration: none;
+            font-size: 1.1em;
+        }
+        
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        
+        section {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        section h2 {
+            color: #333;
+            border-bottom: 3px solid #ffc107;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        
+        section h3 {
+            color: #555;
+            margin: 25px 0 15px 0;
+            font-size: 1.3em;
+        }
+        
+        section h4 {
+            color: #666;
+            margin: 20px 0 10px 0;
+            font-size: 1.1em;
+        }
+        
+        .scenario {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .scenario-header {
+            background: #f8f9fa;
+            padding: 15px 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .scenario-header h3 {
+            margin: 0;
+            color: #333;
+        }
+        
+        .scenario-body {
+            padding: 20px;
+        }
+        
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .two-columns {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .column {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .column.admin {
+            border-left: 4px solid #1976d2;
+        }
+        
+        .column.customer {
+            border-left: 4px solid #4caf50;
+        }
+        
+        .column h4 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .column.admin h4 {
+            color: #1976d2;
+        }
+        
+        .column.customer h4 {
+            color: #4caf50;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+        .badge.admin {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+        
+        .badge.customer {
+            background: #e8f5e9;
+            color: #4caf50;
+        }
+        
+        ul {
+            margin: 10px 0 10px 20px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        .step {
+            display: flex;
+            align-items: flex-start;
+            margin: 15px 0;
+            padding: 15px;
+            background: #fff;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .step-number {
+            background: #ffc107;
+            color: #000;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .step-content {
+            flex: 1;
+        }
+        
+        .highlight {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+            margin: 15px 0;
+        }
+        
+        .info {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #1976d2;
+            margin: 15px 0;
+        }
+        
+        .warning {
+            background: #ffebee;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #f44336;
+            margin: 15px 0;
+        }
+        
+        .success {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #4caf50;
+            margin: 15px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        tr:hover {
+            background: #f8f9fa;
+        }
+        
+        code {
+            background: #f5f5f5;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        
+        .icon {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+        }
+        
+        footer a {
+            color: #1976d2;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>📦 HP Express WooCommerce</h1>
+        <p>Upute za korištenje - Svi scenariji dostave</p>
+    </header>
+    
+    <div class="container">
+        <!-- Table of Contents -->
+        <nav class="toc">
+            <h2>📋 Sadržaj</h2>
+            <ul>
+                <li><a href="#instalacija">1. Instalacija i konfiguracija</a></li>
+                <li><a href="#scenarij-adresa">2. Scenarij: Dostava na adresu</a></li>
+                <li><a href="#scenarij-posta">3. Scenarij: Dostava na poštu</a></li>
+                <li><a href="#scenarij-paketomat">4. Scenarij: Dostava u paketomat</a></li>
+                <li><a href="#scenarij-cod">5. Scenarij: Plaćanje pouzećem (COD)</a></li>
+                <li><a href="#tracking">6. Praćenje pošiljke</a></li>
+                <li><a href="#troubleshooting">7. Rješavanje problema</a></li>
+            </ul>
+        </nav>
+
+        <!-- Instalacija -->
+        <section id="instalacija">
+            <h2>1. Instalacija i konfiguracija</h2>
+            
+            <h3>Koraci instalacije</h3>
+            
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <strong>Upload plugina</strong><br>
+                    Uploadajte <code>woo-hp-express</code> folder u <code>/wp-content/plugins/</code>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <strong>Aktivacija</strong><br>
+                    Aktivirajte plugin kroz WordPress admin → Plugins
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <strong>API podaci</strong><br>
+                    Idite na <strong>WooCommerce → HP Express</strong> i unesite:
+                    <ul>
+                        <li>Korisničko ime (HP API)</li>
+                        <li>Lozinka (HP API)</li>
+                        <li>CECODE (vaš korisnički kod kod HP-a)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <strong>Podaci pošiljatelja</strong><br>
+                    Unesite podatke vaše tvrtke: naziv, telefon, email, adresa
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <strong>Shipping metode</strong><br>
+                    Idite na <strong>WooCommerce → Settings → Shipping</strong>, odaberite zonu i dodajte "HP Express" metodu
+                </div>
+            </div>
+            
+            <div class="info">
+                <strong>💡 Tip:</strong> Možete kreirati više HP Express shipping metoda s različitim uslugama i tipovima dostave (npr. "Brza dostava D+1", "Dostava u paketomat", "Dostava na poštu").
+            </div>
+        </section>
+
+        <!-- Scenarij: Dostava na adresu -->
+        <section id="scenarij-adresa">
+            <h2>2. Scenarij: Dostava na adresu</h2>
+            
+            <div class="highlight">
+                <strong>Tip dostave:</strong> Adresa (delivery_type: 1)<br>
+                <strong>Opis:</strong> Standardna dostava paketa na adresu primatelja
+            </div>
+            
+            <div class="scenario">
+                <div class="scenario-header">
+                    <h3>🛒 Proces narudžbe</h3>
+                </div>
+                <div class="scenario-body">
+                    <div class="two-columns">
+                        <div class="column customer">
+                            <h4>👤 Kupac</h4>
+                            <ol>
+                                <li>Dodaje proizvode u košaricu</li>
+                                <li>Na checkoutu odabire shipping metodu "HP Express" (tip: Adresa)</li>
+                                <li>Unosi adresu dostave</li>
+                                <li>Završava narudžbu</li>
+                                <li>Prima email potvrdu narudžbe</li>
+                            </ol>
+                        </div>
+                        <div class="column admin">
+                            <h4>👨‍💼 Admin</h4>
+                            <ol>
+                                <li>Prima notifikaciju o novoj narudžbi</li>
+                                <li>Otvara narudžbu u WooCommerce adminu</li>
+                                <li>U metaboxu "HP Express Pošiljka" odabire uslugu i težinu</li>
+                                <li>Klikne "Kreiraj pošiljku"</li>
+                                <li>Ispisuje naljepnicu (PDF)</li>
+                                <li>Mijenja status narudžbe u "Completed"</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>Što kupac dobiva:</h3>
+            <ul>
+                <li>✅ Email s potvrdom narudžbe</li>
+                <li>✅ Email s tracking informacijama (kad admin promijeni status)</li>
+                <li>✅ Tracking info u svom accountu (My Account → Orders)</li>
+                <li>✅ Paket na kućnu adresu</li>
+            </ul>
+            
+            <h3>Što admin dobiva:</h3>
+            <ul>
+                <li>✅ Kreirana pošiljka u HP sustavu</li>
+                <li>✅ Barcode i referentni broj</li>
+                <li>✅ PDF naljepnica za ispis</li>
+                <li>✅ Praćenje statusa pošiljke</li>
+                <li>✅ Mogućnost otkazivanja (dok je status NOV)</li>
+            </ul>
+        </section>
+
+        <!-- Scenarij: Dostava na poštu -->
+        <section id="scenarij-posta">
+            <h2>3. Scenarij: Dostava na poštu</h2>
+            
+            <div class="highlight">
+                <strong>Tip dostave:</strong> Pošta (delivery_type: 2)<br>
+                <strong>Opis:</strong> Paket se dostavlja u najbližu poštu prema ZIP kodu primatelja
+            </div>
+            
+            <div class="warning">
+                <strong>⚠️ Obavezan mobilni broj!</strong><br>
+                Za dostavu na poštu kupac mora imati hrvatski mobilni broj (091, 092, 095, 097, 098, 099) za primanje SMS obavijesti.
+            </div>
+            
+            <div class="scenario">
+                <div class="scenario-header">
+                    <h3>🛒 Proces narudžbe</h3>
+                </div>
+                <div class="scenario-body">
+                    <div class="two-columns">
+                        <div class="column customer">
+                            <h4>👤 Kupac</h4>
+                            <ol>
+                                <li>Dodaje proizvode u košaricu</li>
+                                <li>Na checkoutu odabire shipping metodu "Dostava na poštu"</li>
+                                <li>Unosi adresu i <strong>mobilni broj</strong></li>
+                                <li>Završava narudžbu</li>
+                                <li>Prima email potvrdu</li>
+                                <li><strong>Prima SMS od HP-a kad paket stigne na poštu</strong></li>
+                            </ol>
+                        </div>
+                        <div class="column admin">
+                            <h4>👨‍💼 Admin</h4>
+                            <ol>
+                                <li>Prima notifikaciju o novoj narudžbi</li>
+                                <li>Otvara narudžbu</li>
+                                <li>Kreira pošiljku (HP automatski određuje poštu prema ZIP kodu)</li>
+                                <li>Ispisuje naljepnicu</li>
+                                <li>Mijenja status u "Completed"</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>Što kupac dobiva:</h3>
+            <ul>
+                <li>✅ Email s potvrdom narudžbe</li>
+                <li>✅ Email s tracking informacijama</li>
+                <li>✅ <strong>SMS od HP-a s informacijom o lokaciji pošte i roku preuzimanja</strong></li>
+                <li>✅ Tracking info u accountu</li>
+                <li>✅ Paket preuzima u pošti uz osobnu iskaznicu</li>
+            </ul>
+            
+            <h3>Što admin dobiva:</h3>
+            <ul>
+                <li>✅ Sve kao i za dostavu na adresu</li>
+                <li>✅ HP automatski određuje odredišnu poštu</li>
+            </ul>
+            
+            <div class="info">
+                <strong>💡 Napomena:</strong> HP Express određuje poštu automatski prema poštanskom broju primatelja. Kupac ne bira poštu na checkoutu.
+            </div>
+        </section>
+
+        <!-- Scenarij: Dostava u paketomat -->
+        <section id="scenarij-paketomat">
+            <h2>4. Scenarij: Dostava u paketomat</h2>
+            
+            <div class="highlight">
+                <strong>Tip dostave:</strong> Paketomat (delivery_type: 3)<br>
+                <strong>Opis:</strong> Kupac sam odabire paketomat na interaktivnoj karti
+            </div>
+            
+            <div class="warning">
+                <strong>⚠️ Obavezan mobilni broj!</strong><br>
+                Za dostavu u paketomat kupac mora imati hrvatski mobilni broj za primanje SMS-a s kodom za otvaranje pretinca.
+            </div>
+            
+            <div class="scenario">
+                <div class="scenario-header">
+                    <h3>🛒 Proces narudžbe</h3>
+                </div>
+                <div class="scenario-body">
+                    <div class="two-columns">
+                        <div class="column customer">
+                            <h4>👤 Kupac</h4>
+                            <ol>
+                                <li>Dodaje proizvode u košaricu</li>
+                                <li>Na checkoutu odabire shipping metodu "Dostava u paketomat"</li>
+                                <li><strong>Pojavljuje se interaktivna karta</strong></li>
+                                <li>Pretražuje ili bira paketomat na karti</li>
+                                <li>Klikne "Odaberi" na željenom paketomatu</li>
+                                <li>Vidi potvrdu odabranog paketomata</li>
+                                <li>Završava narudžbu</li>
+                                <li><strong>Prima SMS od HP-a s kodom za otvaranje</strong></li>
+                            </ol>
+                        </div>
+                        <div class="column admin">
+                            <h4>👨‍💼 Admin</h4>
+                            <ol>
+                                <li>Prima notifikaciju o novoj narudžbi</li>
+                                <li>Otvara narudžbu</li>
+                                <li><strong>Vidi odabrani paketomat u shipping sekciji</strong></li>
+                                <li>Kreira pošiljku (paketomat se automatski šalje u API)</li>
+                                <li>Odabire veličinu pretinca (XS, S, M, L)</li>
+                                <li>Ispisuje naljepnicu</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>Paketomat Picker - značajke</h3>
+            <ul>
+                <li>🗺️ Interaktivna Leaflet karta s OpenStreetMap podlogom</li>
+                <li>🔍 Pretraživanje paketomata po imenu ili adresi</li>
+                <li>📍 Markeri za sve dostupne paketomate</li>
+                <li>✅ Vizualna potvrda odabranog paketomata</li>
+                <li>📱 Radi na klasičnom i WooCommerce Blocks checkoutu</li>
+            </ul>
+            
+            <h3>Što kupac dobiva:</h3>
+            <ul>
+                <li>✅ Vizualni odabir paketomata na karti</li>
+                <li>✅ Potvrda odabranog paketomata na checkoutu</li>
+                <li>✅ Info o paketomatu u narudžbi (My Account)</li>
+                <li>✅ Email s tracking informacijama</li>
+                <li>✅ <strong>SMS s kodom za otvaranje pretinca</strong></li>
+                <li>✅ 48 sati za preuzimanje paketa</li>
+            </ul>
+            
+            <h3>Što admin dobiva:</h3>
+            <ul>
+                <li>✅ Prikaz odabranog paketomata u narudžbi (ime, adresa, kod)</li>
+                <li>✅ Automatsko slanje paketomat koda u HP API</li>
+                <li>✅ Odabir veličine pretinca pri kreiranju pošiljke</li>
+            </ul>
+            
+            <h3>Veličine pretinca</h3>
+            <table>
+                <tr>
+                    <th>Kod</th>
+                    <th>Naziv</th>
+                    <th>Dimenzije</th>
+                </tr>
+                <tr>
+                    <td>X</td>
+                    <td>XS</td>
+                    <td>9 × 16 × 64 cm</td>
+                </tr>
+                <tr>
+                    <td>S</td>
+                    <td>S</td>
+                    <td>9 × 38 × 64 cm</td>
+                </tr>
+                <tr>
+                    <td>M</td>
+                    <td>M</td>
+                    <td>19 × 38 × 64 cm</td>
+                </tr>
+                <tr>
+                    <td>L</td>
+                    <td>L</td>
+                    <td>39 × 38 × 64 cm</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Scenarij: COD -->
+        <section id="scenarij-cod">
+            <h2>5. Scenarij: Plaćanje pouzećem (COD)</h2>
+            
+            <div class="highlight">
+                <strong>Dodatna usluga:</strong> Cash on Delivery<br>
+                <strong>Opis:</strong> Kupac plaća kuriru/na pošti/na paketomatu pri preuzimanju
+            </div>
+            
+            <div class="scenario">
+                <div class="scenario-header">
+                    <h3>🛒 Proces narudžbe</h3>
+                </div>
+                <div class="scenario-body">
+                    <div class="two-columns">
+                        <div class="column customer">
+                            <h4>👤 Kupac</h4>
+                            <ol>
+                                <li>Dodaje proizvode u košaricu</li>
+                                <li>Odabire shipping metodu (bilo koji tip)</li>
+                                <li><strong>Odabire "Plaćanje pouzećem" kao način plaćanja</strong></li>
+                                <li>Završava narudžbu</li>
+                                <li>Prima potvrdu s napomenom o plaćanju pri preuzimanju</li>
+                                <li><strong>Plaća pri preuzimanju paketa</strong></li>
+                            </ol>
+                        </div>
+                        <div class="column admin">
+                            <h4>👨‍💼 Admin</h4>
+                            <ol>
+                                <li>Prima narudžbu s načinom plaćanja "COD"</li>
+                                <li>Plugin automatski uključuje COD uslugu</li>
+                                <li>Kreira pošiljku - iznos otkupnine se automatski postavlja</li>
+                                <li>HP naplaćuje otkupninu od primatelja</li>
+                                <li><strong>HP isplaćuje otkupninu na račun trgovca</strong></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>Što se automatski postavlja:</h3>
+            <ul>
+                <li>✅ Iznos otkupnine = ukupni iznos narudžbe</li>
+                <li>✅ Dodatna usluga COD (ID: 9) u API zahtjevu</li>
+                <li>✅ HP naplaćuje i prenosi sredstva trgovcu</li>
+            </ul>
+            
+            <div class="info">
+                <strong>💡 Maksimalni COD iznos:</strong> 13.300,00 EUR
+            </div>
+        </section>
+
+        <!-- Tracking -->
+        <section id="tracking">
+            <h2>6. Praćenje pošiljke</h2>
+            
+            <h3>Za kupca</h3>
+            
+            <div class="success">
+                <strong>Email obavijesti</strong><br>
+                Kad admin kreira pošiljku i promijeni status narudžbe, kupac automatski prima email s:
+                <ul>
+                    <li>Brojem pošiljke (barcode)</li>
+                    <li>Linkom za praćenje na HP tracking stranici</li>
+                </ul>
+            </div>
+            
+            <div class="success">
+                <strong>My Account</strong><br>
+                U svom WooCommerce accountu (My Account → Orders → View Order) kupac vidi:
+                <ul>
+                    <li>Broj pošiljke</li>
+                    <li>Carrier: HP Express</li>
+                    <li>Link "Pratite svoju pošiljku"</li>
+                </ul>
+            </div>
+            
+            <h3>Za admina</h3>
+            
+            <ul>
+                <li>✅ Prikaz barcoda i statusa u listi narudžbi</li>
+                <li>✅ Detaljan status u metaboxu narudžbe</li>
+                <li>✅ Gumb za osvježavanje statusa (↻)</li>
+                <li>✅ Povijest svih skeniranja pošiljke</li>
+            </ul>
+            
+            <h3>Tracking URL format</h3>
+            <code>https://posiljka.posta.hr/tragom-posiljke/tracking/trackingdata?barcode={BARCODE}</code>
+        </section>
+
+        <!-- Troubleshooting -->
+        <section id="troubleshooting">
+            <h2>7. Rješavanje problema</h2>
+            
+            <h3>Česte greške</h3>
+            
+            <table>
+                <tr>
+                    <th>Greška</th>
+                    <th>Uzrok</th>
+                    <th>Rješenje</th>
+                </tr>
+                <tr>
+                    <td><code>API credentials nisu konfigurirani</code></td>
+                    <td>Nedostaju API podaci</td>
+                    <td>Unesite korisničko ime i lozinku u HP Express postavkama</td>
+                </tr>
+                <tr>
+                    <td><code>Podaci pošiljatelja nisu konfigurirani</code></td>
+                    <td>Nedostaju podaci tvrtke</td>
+                    <td>Unesite sve podatke pošiljatelja (naziv, telefon, adresa)</td>
+                </tr>
+                <tr>
+                    <td><code>Za dostavu u paketomat potreban je ispravan hrvatski mobilni broj</code></td>
+                    <td>Neispravan format telefona</td>
+                    <td>Broj mora počinjati s 091, 092, 095, 097, 098 ili 099</td>
+                </tr>
+                <tr>
+                    <td><code>Za dostavu na poštu potreban je ispravan hrvatski mobilni broj</code></td>
+                    <td>Neispravan format telefona</td>
+                    <td>Isto kao gore - potreban mobilni za SMS</td>
+                </tr>
+                <tr>
+                    <td><code>Molimo odaberite paketomat za dostavu</code></td>
+                    <td>Kupac nije odabrao paketomat</td>
+                    <td>Kupac mora kliknuti "Odaberi" na željenom paketomatu</td>
+                </tr>
+            </table>
+            
+            <h3>Podržani formati telefona</h3>
+            <ul>
+                <li><code>+385911234567</code> ✅</li>
+                <li><code>00385911234567</code> ✅</li>
+                <li><code>0911234567</code> ✅</li>
+                <li><code>911234567</code> ✅</li>
+                <li><code>01/1234567</code> ❌ (fiksni broj)</li>
+            </ul>
+            
+            <h3>Debug mode</h3>
+            <p>Za detaljnije logove, uključite WP_DEBUG u <code>wp-config.php</code>:</p>
+            <code>define('WP_DEBUG', true);</code><br>
+            <code>define('WP_DEBUG_LOG', true);</code>
+            <p style="margin-top: 10px;">Logovi se spremaju u <code>/wp-content/debug.log</code></p>
+        </section>
+
+        <section>
+            <h2>📊 Usporedba scenarija</h2>
+            
+            <table>
+                <tr>
+                    <th>Značajka</th>
+                    <th>Adresa</th>
+                    <th>Pošta</th>
+                    <th>Paketomat</th>
+                </tr>
+                <tr>
+                    <td>Kupac bira lokaciju</td>
+                    <td>Ne (unosi adresu)</td>
+                    <td>Ne (HP određuje)</td>
+                    <td><strong>Da (karta)</strong></td>
+                </tr>
+                <tr>
+                    <td>Mobilni obavezan</td>
+                    <td>Ne</td>
+                    <td><strong>Da</strong></td>
+                    <td><strong>Da</strong></td>
+                </tr>
+                <tr>
+                    <td>SMS obavijest</td>
+                    <td>Opcijski</td>
+                    <td><strong>Da (lokacija)</strong></td>
+                    <td><strong>Da (kod)</strong></td>
+                </tr>
+                <tr>
+                    <td>Veličina pretinca</td>
+                    <td>N/A</td>
+                    <td>N/A</td>
+                    <td><strong>XS/S/M/L</strong></td>
+                </tr>
+                <tr>
+                    <td>Rok preuzimanja</td>
+                    <td>N/A</td>
+                    <td>7-14 dana</td>
+                    <td><strong>48 sati</strong></td>
+                </tr>
+                <tr>
+                    <td>COD podrška</td>
+                    <td>✅</td>
+                    <td>✅</td>
+                    <td>✅</td>
+                </tr>
+            </table>
+        </section>
+    </div>
+    
+    <footer>
+        <p>HP Express WooCommerce Plugin v1.1.0</p>
+        <p>Autor: <a href="https://svejedobro.hr">Goran Zajec</a></p>
+    </footer>
+</body>
+</html>
